@@ -1,0 +1,24 @@
+#!/bin/sh
+sudo apt-get -qq update
+sudo apt-get -qq install -y git 
+git clone https://github.com/DPMI/trafficgenerators.git
+cd trafficgenerators
+make 
+sudo make install
+cd ..
+sudo apt-get -qq install -y build-essential autoconf libtool rrdtool librrd-dev libxml2-dev pkg-config libpcap-dev libssl-dev
+git clone https://github.com/DPMI/libcap_utils.git
+cd libcap_utils
+autoreconf -si
+mkdir build;
+cd build
+../configure
+make
+sudo make install
+cd ..
+git clone https://github.com/chaitanya2ivvala/consumer-onewaydelay.git
+cd consumer-onewaydelay
+make
+sudo make install
+cd ..
+sudo ldconfig
