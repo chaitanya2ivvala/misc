@@ -1,5 +1,4 @@
 FROM ubuntu
-FROM python:3.3
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \ 
 	DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y wget curl git locales build-essential pkg-config dh-autoreconf bzip2 \
